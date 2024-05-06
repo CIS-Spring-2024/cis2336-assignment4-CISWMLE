@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <title>UH Cafeteria: Food Info</title>
+    <head>
+        <link rel="stylesheet" href="../CSS/foodstyle.css" />
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="biography.html">Bio</a>
+            <a href="home.html">Home</a>
+            <a class="active" href="food.html">Food</a>
+            <a id="cart" href="order.html">Order</a>
+        </div>
+        <br>
+        <div id="menu">
+            <h1 class="middletitle">Menu</h1>
+            <select id="restaurant" onclick="swap()">
+                <option value="0" selected="selected" hidden>Choose here</option>
+                <option value="1">Delectable Deli</option>
+                <option value="2">Bountiful Burgers</option>
+                <option value="3">Stupendous Soups</option>
+            </select>
+            <br><br>
+
+            <section id="menuoptions">
+            <text class="largetext" id="menu1"></text>
+            <text class="smalltext" id="ingredient1"></text>
+            <text class="largetext"id="menu2"></text>
+            <text class="smalltext" id="ingredient2"></text>
+            <text class="largetext"id="menu3"></text>
+            <text class="smalltext" id="ingredient3"></text>
+            <text class="largetext"id="menu4"></text>
+            <text class="smalltext" id="ingredient4"></text>
+            </section>
+
+            <section id="foodimages">
+            <img id="food1">
+            <img id="food2">
+            </section>
+        </div>
+
+        <script>
+            function swap(){
+                document.getElementById("food1").classList.add('selected')
+                document.getElementById("food2").classList.add('selected')
+            if(document.getElementById("restaurant").value==1) {
+                document.getElementById("food1").src="../Images/sandwich.jpg";
+                document.getElementById("food2").src="../Images/grilled cheese.jpg";
+                document.getElementById("menu1").innerHTML="Ham and Cheese (320 Cal)<br>";
+                document.getElementById("ingredient1").innerHTML=" - Bread, Ham, Lettuce, Tomatoes, Cheese"
+                document.getElementById("menu2").innerHTML="<br><br>Classic BLT (340 Cal)<br>"
+                document.getElementById("ingredient2").innerHTML=" - Bread, Bacon, Lettuce, Tomatoes, Mayo"
+                document.getElementById("menu3").innerHTML="<br><br>Chicken Sandwich (340 Cal)<br>"
+                document.getElementById("ingredient3").innerHTML=" - Bread, Chicken, Pickles, Lettuce, Tomatoes, Mayo"
+                document.getElementById("menu4").innerHTML="<br><br>Grilled Cheese (260 Cal)<br>"
+                document.getElementById("ingredient4").innerHTML=" - Bread, Cheese, Butter"
+            }
+            if(document.getElementById("restaurant").value==2) {
+                document.getElementById("food1").src="../Images/burger.webp";
+                document.getElementById("food2").src="../Images/double burger.webp";
+                document.getElementById("menu1").innerHTML="Classic Burger  (Single - 560 Cal/Double - 840 Cal)<br>";
+                document.getElementById("ingredient1").innerHTML=" - Bread Bun, Beef Patty/Patties, American Cheese, Onion, Lettuce, Tomatoes, Pickles"
+                document.getElementById("menu2").innerHTML="<br><br>Veggie Burger  (Single - 460 Cal/Double - 640 Cal)<br>"
+                document.getElementById("ingredient2").innerHTML=" - Bread Bun, Veggie Patty/Patties, American Cheese, Onion, Lettuce, Tomatoes, Pickles"
+                document.getElementById("menu3").innerHTML="<br><br>Fries  (Small - 200 Cal/Medium - 280 Cal/Large - 350 Cal)<br>"
+                document.getElementById("ingredient3").innerHTML=" - Potato, Vegetable Oil, Salt"
+                document.getElementById("menu4").innerHTML="<br><br>Fountain Drinks  (Small/Medium/Large)<br>"
+                document.getElementById("ingredient4").innerHTML=" - Choices: Water, Soda, Tea, etc."
+            }
+            if(document.getElementById("restaurant").value==3) {
+                document.getElementById("food1").src="../Images/soup.jpg";
+                document.getElementById("food2").src="../Images/tomato soup.avif";
+                document.getElementById("menu1").innerHTML="Veggie Soup  (Medium - 100 Cal/Large - 160 Cal)<br>";
+                document.getElementById("ingredient1").innerHTML=" - Carrots, Celery, Tomatoes, Potatoes, Green Beans, Corn, Peas, Onion, Garlic"
+                document.getElementById("menu2").innerHTML="<br><br>Chicken Soup  (Medium - 120 Cal/Large -200 Cal)<br>"
+                document.getElementById("ingredient2").innerHTML=" - Chicken, Carrots, Celery, Onion, Salt, Pepper"
+                document.getElementById("menu3").innerHTML="<br><br>Mushroom Soup  (Medium - 120 Cal/Large - 200 Cal)<br>"
+                document.getElementById("ingredient3").innerHTML=" - Mushroom, Onion, Thyme, Parsley, Butter, Cream, Flour"
+                document.getElementById("menu4").innerHTML="<br><br>Tomato Soup  (Medium - 100 Cal/Large - 160 Cal)<br>"
+                document.getElementById("ingredient4").innerHTML=" - Tomatoes, Onion, Butter, Basil, Vegetable Broth"
+            }}
+        </script>
+    </body>
+</html>

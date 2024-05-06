@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <title>UH Cafeteria: Order</title>
+    <head>
+        <link rel="stylesheet" href="../CSS/orderstyle.css" />
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="biography.html">Bio</a>
+            <a href="home.html">Home</a>
+            <a href="food.html">Food</a>
+            <a class="active" id="cart" href="order.html">Order</a>
+        </div>
+        <br>
+        <div id="orderlist">
+            <h1 class="middletitle">Menus</h1>
+            <select id="restaurant" onclick="swap()">
+                <option value="0" selected="selected" hidden>Choose here</option>
+                <option value="1">Delectable Deli</option>
+                <option value="2">Bountiful Burgers</option>
+                <option value="3">Stupendous Soups</option>
+            </select>
+            <br><br>
+
+            <section id="menuoptions">
+            <table id="delimenu" style="display:none">
+                <tr>
+                    <th>Food</th>
+                    <th>Price</th>
+                    <th>Order</th>
+                </tr>
+                <tr>
+                    <td>Ham and Cheese</td>
+                    <td>5</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Classic BLT</td>
+                    <td>6</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Chicken Sandwich</td>
+                    <td>5</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Grilled Cheese</td>
+                    <td>4</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+            </table>
+            <table id="burgermenu" style="display:none">
+                <tr>
+                    <th>Food</th>
+                    <th>Price</th>
+                    <th>Order</th>
+                </tr>
+                <tr>
+                    <td>Classic Burger (Single)</td>
+                    <td>5</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Classic Burger (Double)</td>
+                    <td>7</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Veggie Burger (Single)</td>
+                    <td>4</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Veggie Burger (Double)</td>
+                    <td>6</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Fries (Small)</td>
+                    <td>1</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Fries (Medium)</td>
+                    <td>2</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Fries (Large)</td>
+                    <td>3</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Fountain Drink (Small)</td>
+                    <td>1</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Fountain Drink (Medium)</td>
+                    <td>2</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Fountain Drink (Large)</td>
+                    <td>3</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+            </table>
+            <table id="soupmenu" style="display:none">
+                <tr>
+                    <th>Food</th>
+                    <th>Price</th>
+                    <th>Order</th>
+                </tr>
+                <tr>
+                    <td>Veggie Soup (Medium)</td>
+                    <td>4</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Veggie Soup (Large)</td>
+                    <td>6</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Chicken Soup (Medium)</td>
+                    <td>5</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Chicken Soup (Large)</td>
+                    <td>7</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Mushroom Soup (Medium)</td>
+                    <td>5</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Mushroom Soup (Large)</td>
+                    <td>7</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Tomato Soup (Medium)</td>
+                    <td>4</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+                <tr>
+                    <td>Tomato Soup (Large)</td>
+                    <td>6</td>
+                    <td><button onclick="insRow(this)">Add Item</button></td>
+                </tr>
+            </table>
+            </section>
+
+            <section id="foodimages">
+            <img id="food1">
+            <br><br>
+            <img id="food2">
+            </section>
+        </div>
+
+        <script>
+            function swap(){
+                document.getElementById("food1").classList.add('selected')
+                document.getElementById("food2").classList.add('selected')
+            if(document.getElementById("restaurant").value==1) {
+                document.getElementById("food1").src="../Images/sandwich.jpg";
+                document.getElementById("food2").src="../Images/grilled cheese.jpg";
+                document.getElementById("delimenu").style.display="";
+                document.getElementById("burgermenu").style.display="none";
+                document.getElementById("soupmenu").style.display="none"
+            }
+            if(document.getElementById("restaurant").value==2) {
+                document.getElementById("food1").src="../Images/burger.webp";
+                document.getElementById("food2").src="../Images/double burger.webp";
+                document.getElementById("delimenu").style.display="none";
+                document.getElementById("burgermenu").style.display="";
+                document.getElementById("soupmenu").style.display="none"
+            }
+            if(document.getElementById("restaurant").value==3) {
+                document.getElementById("food1").src="../Images/soup.jpg";
+                document.getElementById("food2").src="../Images/tomato soup.avif";
+                document.getElementById("delimenu").style.display="none";
+                document.getElementById("burgermenu").style.display="none";
+                document.getElementById("soupmenu").style.display=""
+            }}
+        </script>
+
+        <div id="shoppingcart">
+            <h1 class="middletitle">Cart</h1>
+            <form>
+            <table id="itemlist">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Removal</th>
+                    <th style="display:none">Price</th>
+                </tr>
+                <tr style="display:none">
+                    <td>
+                        <text></text>
+                    </td>
+                    <td><input type="number" value="1" min="1" max="9" onchange="calcSubPrice(this)"></td>
+                    <td></td>
+                    <td><button onclick="deleteRow(this)">Remove</button></td>
+                    <td style="display:none"><text></text></td>
+                </tr>
+            </table>
+            <br><br>
+                <text id="carttotal">
+                    Total: $0
+                </text>
+                <br><br>
+                    <input type="submit" value="Checkout" onclick="formCheck()">
+            </form>
+        </div>
+
+        <script>
+            function calcTotal(){
+                var totalprice=0;
+                var rowlength=document.getElementById("itemlist").rows.length
+                document.getElementById('carttotal').innerHTML='Total: $0';
+                    for (let i = 2; i<=rowlength; i++){
+                        var n = document.getElementById("itemlist").rows[i].cells[2].innerHTML;
+                        totalprice+=Number(n);
+                        document.getElementById("carttotal").innerHTML="Total: $"+totalprice;
+                    }
+            }
+
+            function deleteRow(row){
+            var i=row.parentNode.parentNode.rowIndex;
+            if(i!=1){
+            document.getElementById('itemlist').deleteRow(i);
+            calcTotal();}
+            }
+
+
+            function insRow(row){
+                if(document.getElementById('itemlist').rows.length<=9){
+            var x=document.getElementById('itemlist');
+            var new_row = x.rows[1].cloneNode(true);
+            new_row.style="";
+            var fname = row.parentNode.parentNode.cells[0].innerHTML;
+            var fprice = row.parentNode.parentNode.cells[1].innerHTML;
+            new_row.cells[0].innerHTML = fname;
+            new_row.cells[4].innerHTML = fprice;
+            new_row.cells[2].innerHTML = fprice;
+            
+            x.appendChild( new_row );
+            calcTotal();}
+            else{
+              alert("Maximum Items In Cart")  
+            }}
+
+            function calcSubPrice(row){
+                var fprice = row.parentNode.parentNode.cells[4].innerHTML;
+                var quan = row.parentNode.parentNode.cells[1].children[0].value;
+                var total = 0;
+                total = Number(fprice)*Number(quan);
+                row.parentNode.parentNode.cells[2].innerHTML = total;
+                calcTotal();
+            }
+
+            function formCheck(){
+                    alert('Order Submitted!');
+
+                    const url='http://localhost:3000/order';
+                    const tot=document.getElementById("carttotal").innerHTML;
+                    fetch(url, {
+                        method:'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({tot})
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                        throw new Error('Network response failed: ' + response.statusText);
+                    }
+                    return response.json();
+                    })
+                    .then(data => {
+                        window.location.href = 'ordercon.html';
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Failed to submit order: ' + error.message);
+                    })
+
+                }
+        </script>
+    </body>
+</html>

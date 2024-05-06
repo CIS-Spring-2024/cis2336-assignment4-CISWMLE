@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <title>UH Cafeteria: Homepage</title>
+    <head>
+        <link rel="stylesheet" href="../CSS/style.css" />
+        
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="biography.html">Bio</a>
+            <a class="active" href="home.html">Home</a>
+            <a href="food.html">Food</a>
+            <a id="cart" href="order.html">Order</a>
+        </div>
+
+        <header>
+            <br><h1>Welcome to the UH Sugarland Eatery</h1><br>
+        </header>
+        <div><br></div>
+        <section id="events">
+            <a id="blogevent">
+                <img src="../Images/blog.webp" id="blogimg">
+                <span>Events are currently in the works, stay tuned!</span>
+            </a>
+        </section>
+
+        <div><br><br></div>
+
+        <section id="middle">
+
+        <div id="location">
+            <h2 class="middletitle">Restaurant Times</h2>
+            <h4>Delectable Deli</h4>
+            <h5>7AM - 9PM</h5>
+            <h4>Bountiful Burgers</h4>
+            <h5>9AM - 10PM</h5>
+            <h4>Stupendous Soups</h4>
+            <h5>8PM - 9PM</h5>
+        </div>
+
+        <div id="menu">
+            <h2 class="middletitle">Menu</h2>
+            <select id="restaurant" onclick="swap()">
+                <option value="0" selected="selected" hidden>Choose here</option>
+                <option value="1">Delectable Deli</option>
+                <option value="2">Bountiful Burgers</option>
+                <option value="3">Stupendous Soups</option>
+            </select>
+            <br>
+            <text id="menuoptions"></text>
+            <img id="food">
+        </div>
+        
+        </section>
+
+        <script>
+            function swap(){
+            if(document.getElementById("restaurant").value==1) {
+                document.getElementById("food").src="../Images/sandwich.jpg";
+                document.getElementById("menuoptions").innerHTML="Chicken Sandwich<br><br>Classic BLT<br><br>Po'boy<br><br>Grilled Cheese";
+            }
+            if(document.getElementById("restaurant").value==2) {
+                document.getElementById("food").src="../Images/burger.webp";
+                document.getElementById("menuoptions").innerHTML="Classic Burger  (Single/Double)<br><br>Veggie Burger  (Single/Double)<br><br> Fries  (Small/Medium/Large)<br><br> Fountain Drinks  (Small/Medium/Large)";
+            }
+            if(document.getElementById("restaurant").value==3) {
+                document.getElementById("food").src="../Images/soup.jpg";
+                document.getElementById("menuoptions").innerHTML="Veggie Soup  (Medium/Large)<br><br>Chicken Soup  (Medium/Large)<br><br>Mushroom Soup  (Medium/Large)<br><br>Tomato Soup  (Medium/Large)";
+            }}
+        </script>
+    </body>
+</html>

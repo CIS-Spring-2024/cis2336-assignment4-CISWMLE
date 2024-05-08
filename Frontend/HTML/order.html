@@ -267,9 +267,12 @@
             }
 
             function formCheck(){
+                if(document.getElementById('itemlist').rows.length<=2){
+                    alert('Please add 1 item')
+                }else{
                     alert('Order Submitted!');
 
-                    const url='http://localhost:3000/order';
+                    const url='http://localhost:3000/ordercon';
                     const tot=document.getElementById("carttotal").innerHTML;
                     fetch(url, {
                         method:'POST',
@@ -289,7 +292,7 @@
                         console.error('Error:', error);
                         alert('Failed to submit order: ' + error.message);
                     })
-
+                }
                 }
         </script>
     </body>

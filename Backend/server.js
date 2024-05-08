@@ -1,23 +1,40 @@
-const express=require('express');
-const app=express();
-const PORT = 3000;
+const express=require('express')
+const app=express()
+const PORT = 3000
+const path = require('node:path')
+var totalprice = ''
 
-var totalprice = '';
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(express.static(path.join(__dirname,'../Frontend')))
+app.use(express.static(path.join(__dirname,'../Frontend/HTML')))
 
-app.use(express.static('Frontend'));
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../Frontend/HTML/biography.html'))
+})
 
-app.post('/order',(req,res)=>{
-    totalprice = req.body.tot;
-    console.log(totalprice);
-    res.status(300).json({total: totalprice});
+app.get('/home',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../Frontend/HTML/home.html'))
+})
+
+app.get('/food',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../Frontend/HTML/food.html'))
 })
 
 app.get('/order',(req,res)=>{
-    res.status(300).send(totalprice);
+    res.sendFile(path.join(__dirname,'../Frontend/HTML/order.html'))
+});
+
+app.post('/ordercon',(req,res)=>{
+    totalprice = req.body
+})
+
+app.get('/ordercon',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../Frontend/HTML/ordercon.html'))
+    res.send(totalprice)
 });
 
 app.listen(PORT,()=>{
- console.log('Server running on http://localhost:'+PORT);
+ console.log('Server running on http://localhost:'+PORT)
 });

@@ -19,8 +19,7 @@
         <div><br></div>
         <section id="events">
             <a id="blogevent">
-                <img src="../Images/blog.webp" id="blogimg">
-                <span>Events are currently in the works, stay tuned!</span>
+                <a href="ordercon.html">Check your order</a>
             </a>
         </section>
 
@@ -67,6 +66,27 @@
                 document.getElementById("food").src="../Images/soup.jpg";
                 document.getElementById("menuoptions").innerHTML="Veggie Soup  (Medium/Large)<br><br>Chicken Soup  (Medium/Large)<br><br>Mushroom Soup  (Medium/Large)<br><br>Tomato Soup  (Medium/Large)";
             }}
+
+            const url='http://localhost:3000/ordercon';
+            const getData = () => {
+                fetch(url)
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response failed: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('events').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Failed to fetch data:', error);
+            });
+        };
+
+        window.onload = function () {
+            getData();
+        }
         </script>
     </body>
 </html>

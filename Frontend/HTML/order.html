@@ -192,7 +192,7 @@
 
         <div id="shoppingcart">
             <h1 class="middletitle">Cart</h1>
-            <form>
+            <form action="ordercon" method="post">
             <table id="itemlist">
                 <tr>
                     <th>Product</th>
@@ -272,7 +272,7 @@
                 }else{
                     alert('Order Submitted!');
 
-                    const url='http://localhost:3000/ordercon';
+                    const url='http://localhost:3000/order';
                     const tot=document.getElementById("carttotal").innerHTML;
                     fetch(url, {
                         method:'POST',

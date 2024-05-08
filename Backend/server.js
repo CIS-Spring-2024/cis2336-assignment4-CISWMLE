@@ -28,6 +28,7 @@ app.get('/order',(req,res)=>{
 
 app.post('/ordercon',(req,res)=>{
     totalprice = req.body
+    res.sendFile(path.join(__dirname,'../Frontend/HTML/ordercon.html'))
 })
 
 app.get('/ordercon',(req,res)=>{
